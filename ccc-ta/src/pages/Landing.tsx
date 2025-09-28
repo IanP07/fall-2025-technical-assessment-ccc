@@ -1,10 +1,15 @@
+import bookStack from "../assets/stack-of-books.png";
 import rightArrow from "../assets/icons/rightArrow.png";
+import searchIcon from "../assets/icons/searchICon.png";
 
 function LandingPage() {
   return (
     <div id="landing-main">
-      <div id="landing-page-background">
-        <div id="landing-page-text-div">
+      <div id="landing-page-background" style={{ position: "relative" }}>
+        <div
+          id="landing-page-text-div"
+          style={{ position: "relative", zIndex: 1 }}
+        >
           <h1>Find My Professor</h1>
           <h2 id="landing-subtext">
             Want to know more about the professors here at UMD? This is the
@@ -12,18 +17,32 @@ function LandingPage() {
             grade distributions.
           </h2>
         </div>
+        <img
+          src={bookStack}
+          style={{
+            width: "200px",
+            height: "200px",
+            position: "absolute",
+            top: "90px",
+            right: "10vw",
+          }}
+        />
       </div>
 
       <div id="landing-search">
         <h1 style={{ color: "black", fontSize: 36 }}>
           Enter a Professor to Start
         </h1>
-        <input
-          id="landing-page-input"
-          style={{ marginTop: "20px" }}
-          className="search-bar"
-          placeholder="Enter professor name..."
-        ></input>
+        <div id="search-bar-wrapper">
+          <input
+            id="landing-page-input"
+            className="search-bar"
+            placeholder="Enter name..."
+          ></input>
+          <div className="search-button-div">
+            <img src={searchIcon} style={{ width: "30px", height: "auto" }} />
+          </div>
+        </div>
 
         <div
           id="recent-results-outer-holder"
@@ -47,21 +66,21 @@ function LandingPage() {
             style={{ display: "flex", gap: "10px" }}
           >
             <div className="recent-results-div">
-              <p class="recent-results-text">John Jane Doe</p>
+              <p className="recent-results-text">John Jane Doe</p>
               <img style={{ height: "30px" }} src={rightArrow}></img>
             </div>
             <div className="recent-results-div">
-              <p class="recent-results-text">John Middle Doe</p>
+              <p className="recent-results-text">John Middle Doe</p>
               <img style={{ height: "30px" }} src={rightArrow}></img>
             </div>
             <div className="recent-results-div">
-              <p class="recent-results-text">John John Jane</p>
+              <p className="recent-results-text">John John Jane</p>
               <img style={{ height: "30px" }} src={rightArrow}></img>
             </div>
           </div>
         </div>
         <p
-          class="disclaimer-text"
+          className="disclaimer-text"
           style={{
             marginTop: "auto",
             paddingTop: "65px",
