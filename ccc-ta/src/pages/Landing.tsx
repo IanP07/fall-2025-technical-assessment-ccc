@@ -1,6 +1,7 @@
 import bookStack from "../assets/stack-of-books.png";
 import rightArrow from "../assets/icons/rightArrow.png";
 import searchIcon from "../assets/icons/searchICon.png";
+import { Link } from "react-router-dom";
 
 function LandingPage() {
   return (
@@ -33,6 +34,7 @@ function LandingPage() {
         <h1 style={{ color: "black", fontSize: 36 }}>
           Enter a Professor to Start
         </h1>
+
         <div id="search-bar-wrapper">
           <input
             id="landing-page-input"
@@ -40,7 +42,9 @@ function LandingPage() {
             placeholder="Enter name..."
           ></input>
           <div className="search-button-div">
-            <img src={searchIcon} style={{ width: "30px", height: "auto" }} />
+            <Link to="/search">
+              <img src={searchIcon} style={{ width: "30px", height: "auto" }} />
+            </Link>
           </div>
         </div>
 

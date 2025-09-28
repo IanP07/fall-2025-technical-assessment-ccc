@@ -23,6 +23,9 @@ body {
   margin: 0px;
 }
 
+
+/* LANDING PAGE STYLES */
+
 #search-bar-wrapper {
   display: flex;
   align-items: center;
@@ -47,6 +50,7 @@ body {
 }
 
 .search-button-div {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,6 +139,41 @@ body {
   }
 
 }
+
+/* SEARCH PAGE STYLES */
+#search-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#search-page-topbar {
+  margin-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+}
+
+#results-container {
+  width: 80%;
+  max-width: 700px;
+}
+
+
+
+/* RESULT CARD COMPONENT STYLES */
+.result-card {
+  width: 100%;
+  height: fit-content;
+  min-height: 230px;
+  background-color: #F8F8F8;
+  border: 1px solid #D4D4D4;
+  border-radius: 15px;
+}
+
 
 /* Tablet Breakpoint */
 @media(max-width: 780px) {
