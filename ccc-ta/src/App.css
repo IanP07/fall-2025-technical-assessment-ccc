@@ -194,7 +194,7 @@ body {
 /* RESULT CARD COMPONENT STYLES */
 .result-card {
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   display: flex;
   width: 100%;
   height: fit-content;
@@ -221,6 +221,15 @@ body {
   background-color: #D9D9D9;
 }
 
+.first-horizontal-bar {
+  width: 5px;
+  height: 174px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 32px;
+  background-color: #D9D9D9;
+}
+
 .profile-circle {
   display: flex;
   margin-top: 13px;
@@ -231,6 +240,11 @@ body {
   height: 90px;
   border-radius: 99px;
   background-color: #D9D9D9;
+}
+
+#result-rating-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .dropdown {
@@ -401,6 +415,14 @@ body {
 
   #landing-page-input {
     margin-top: 0px !important;
+  }
+
+  .result-card {
+    flex-direction: column;
+  }
+
+  .first-horizontal-bar {
+    display: none;
   }
 }
 
