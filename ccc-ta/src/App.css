@@ -4,6 +4,14 @@ h1 {
   color: white;
 }
 
+h2 {
+  font-family: "Inter";
+  font-size: 24px; 
+  font-weight: 500; 
+  margin: 0px;
+  padding: 0px;
+}
+
 p {
   margin: 0px;
   font-family: "Inter";
@@ -59,6 +67,11 @@ body {
   width: 72px;
   height: 100%;
   background-color: rgb(221, 68, 58);
+  transition: background-color 0.22s ease-out;
+}
+
+.search-button-div:hover {
+  background-color: rgb(236, 95, 85);
 }
 
 #recent-events-holder {
@@ -147,6 +160,20 @@ body {
   align-items: center;
 }
 
+#return-div {
+  display: flex;
+  cursor: pointer;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+  transition: background-color 0.2s;
+}
+
+#return-div:hover {
+  background-color: rgba(0, 0, 0, 0.052);
+}
+
 #search-page-topbar {
   margin-top: 50px;
   padding-left: 30px;
@@ -166,13 +193,164 @@ body {
 
 /* RESULT CARD COMPONENT STYLES */
 .result-card {
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
   width: 100%;
   height: fit-content;
   min-height: 230px;
   background-color: #F8F8F8;
   border: 1px solid #D4D4D4;
   border-radius: 15px;
+  margin-bottom: 17px;
 }
+
+.inner-card-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.horizontal-bar {
+  width: 5px;
+  height: 174px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 32px;
+  background-color: #D9D9D9;
+}
+
+.profile-circle {
+  display: flex;
+  margin-top: 13px;
+  margin-bottom: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 99px;
+  background-color: #D9D9D9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  padding: 12px 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  color: #374151;
+  position: relative;
+}
+
+.dropdown-button:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.dropdown-button::before {
+  content: "▼";
+  font-size: 12px;
+  margin-right: 8px;
+  color: #6b7280;
+  transition: transform 0.2s ease;
+}
+
+.dropdown:hover .dropdown-button::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  min-width: 220px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e2e8f0;
+  z-index: 1000;
+  margin-top: 4px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideDown 0.2s ease forwards;
+}
+
+#grade-text {
+  font-size: 90px;
+  font-weight: 500;
+  margin: 0px;
+}
+
+@keyframes slideDown {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.dropdown-content a {
+  background-color: white;
+  color: #374151;
+  padding: 14px 18px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
+  position: relative;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  padding-left: 22px;
+}
+
+.dropdown-content a:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.dropdown-content a:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a::before {
+  content: "•";
+  color: #94a3b8;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover::before {
+  color: #dd443a;
+}
+
+
+
 
 
 /* Tablet Breakpoint */
@@ -198,6 +376,15 @@ body {
     margin-top: 0px;
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  .horizontal-bar {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .inner-card-section {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
 }

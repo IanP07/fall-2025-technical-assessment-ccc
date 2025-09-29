@@ -7,10 +7,12 @@ function SearchPage() {
   return (
     <div id="search-main">
       <div id="search-page-topbar">
-        <div style={{ display: "flex" }}>
-          <img src={leftArrow} style={{ width: "25px" }} />
-          <p style={{ marginTop: "3px" }}>Return</p>
-        </div>
+        <Link to="/">
+          <div id="return-div">
+            <img src={leftArrow} style={{ width: "25px" }} />
+            <p style={{ marginTop: "3px" }}>Return</p>
+          </div>
+        </Link>
       </div>
 
       <div id="search-bar-wrapper" style={{ marginTop: "20px" }}>
@@ -39,6 +41,8 @@ function SearchPage() {
         >
           Recent Results
         </h1>
+        <ResultCard />
+        <ResultCard />
         <ResultCard />
       </div>
 
