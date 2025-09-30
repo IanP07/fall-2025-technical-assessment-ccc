@@ -1,9 +1,18 @@
 import bookStack from "../assets/stack-of-books.png";
 import rightArrow from "../assets/icons/rightArrow.png";
 import searchIcon from "../assets/icons/searchICon.png";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function LandingPage() {
+  const navigate = useNavigate();
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const switchPage = () => {
+    navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
+  };
+
   return (
     <div id="landing-main">
       <div id="landing-page-background" style={{ position: "relative" }}>
@@ -38,13 +47,13 @@ function LandingPage() {
         <div id="search-bar-wrapper">
           <input
             id="landing-page-input"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="search-bar"
             placeholder="Enter name..."
           ></input>
-          <div className="search-button-div">
-            <Link to="/search">
-              <img src={searchIcon} style={{ width: "30px", height: "auto" }} />
-            </Link>
+          <div className="search-button-div" onClick={switchPage}>
+            <img src={searchIcon} style={{ width: "30px", height: "auto" }} />
           </div>
         </div>
 

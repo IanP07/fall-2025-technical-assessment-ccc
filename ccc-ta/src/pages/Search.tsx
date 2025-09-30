@@ -2,8 +2,13 @@ import leftArrow from "../assets/icons/leftarrow.png";
 import searchIcon from "../assets/icons/searchICon.png";
 import { Link } from "react-router-dom";
 import ResultCard from "../components/ResultCard";
+import { useLocation } from "react-router-dom";
 
 function SearchPage() {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const query = params.get("query");
+
   return (
     <div id="search-main">
       <div id="search-page-topbar">
@@ -20,6 +25,7 @@ function SearchPage() {
           id="landing-page-input"
           className="search-bar"
           placeholder="Enter name..."
+          value={query}
         ></input>
         <div
           className="search-button-div"
