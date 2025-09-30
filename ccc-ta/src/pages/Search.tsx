@@ -46,7 +46,23 @@ function SearchPage() {
         <ResultCard />
       </div>
 
-      <div id=""></div>
+      <p
+        className="disclaimer-text"
+        style={{
+          marginTop: "auto",
+          paddingTop: "65px",
+          paddingBottom: "5px",
+          color: "#AAAAAA",
+        }}
+      >
+        Disclaimer: All data is gathered from the{" "}
+        <span style={{ color: "#B95F5F" }}>
+          <a href="https://planetterp.com/api/">
+            <u>PlanetTerp</u>
+          </a>
+        </span>{" "}
+        API
+      </p>
     </div>
   );
 }
