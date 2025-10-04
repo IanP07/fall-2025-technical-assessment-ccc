@@ -2,15 +2,33 @@ import bookStack from "../assets/stack-of-books.png";
 import rightArrow from "../assets/icons/rightArrow.png";
 import searchIcon from "../assets/icons/searchICon.png";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function LandingPage() {
   const navigate = useNavigate();
 
   const [searchQuery, setSearchQuery] = useState("");
 
+  const [recentSearches, setRecentSearches] = useState<string[]>(() => {
+    const saved = localStorage.getItem("recentSearches");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+  }, [recentSearches]);
+
   const switchPage = () => {
     navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
+
+    setRecentSearches((prev) => {
+      const updated = [searchQuery, ...prev.filter((s) => s !== searchQuery)];
+      return updated.slice(0, 3);
+    });
+  };
+
+  const switchPageRecentResult = (recentQuery: string) => {
+    navigate(`/search?query=${recentQuery}`);
   };
 
   return (
@@ -78,18 +96,18 @@ function LandingPage() {
             id="recent-results-holder"
             style={{ display: "flex", gap: "10px" }}
           >
-            <div className="recent-results-div">
-              <p className="recent-results-text">John Jane Doe</p>
-              <img style={{ height: "30px" }} src={rightArrow}></img>
-            </div>
-            <div className="recent-results-div">
-              <p className="recent-results-text">John Middle Doe</p>
-              <img style={{ height: "30px" }} src={rightArrow}></img>
-            </div>
-            <div className="recent-results-div">
-              <p className="recent-results-text">John John Jane</p>
-              <img style={{ height: "30px" }} src={rightArrow}></img>
-            </div>
+            {recentSearches.map((search: string, i: number) => (
+              <div
+                key={i}
+                className="recent-results-div"
+                onClick={() => {
+                  switchPageRecentResult(search);
+                }}
+              >
+                <p className="recent-results-text">{search}</p>
+                <img style={{ height: "30px" }} src={rightArrow}></img>
+              </div>
+            ))}
           </div>
         </div>
         <p

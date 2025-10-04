@@ -35,11 +35,11 @@ function SearchPage() {
     console.log(professors);
   }, [professors]);
 
-  // Waits 50ms after typing to call API, to ensure the API won't be overloaded
+  // Waits 500ms after typing to call API, to ensure the API won't be overloaded
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedQuery(query);
-    }, 50);
+    }, 500);
 
     return () => {
       clearTimeout(handler);
