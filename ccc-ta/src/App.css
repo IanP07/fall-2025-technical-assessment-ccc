@@ -116,7 +116,19 @@ body {
   min-height: 350px;
   height: fit-content;
   width: 100%;
-  background-image: linear-gradient(to right, rgba(112, 112, 112, 0.5), rgba(61, 61, 61, 0.67))
+  /* background-image: linear-gradient(to right, rgba(112, 112, 112, 0.5), rgba(61, 61, 61, 0.67)) */
+  background-image: url("./assets/landing-page-background.png");
+  background-size: cover; 
+  background-position: center;
+}
+
+/* Dims image slightly */
+#landing-page-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.55);
 }
 
 
@@ -388,7 +400,7 @@ body {
 
   #landing-page-text-div {
     margin-top: 0px;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 10px;
   }
 

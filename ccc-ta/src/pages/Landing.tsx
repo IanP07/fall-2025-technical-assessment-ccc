@@ -1,4 +1,5 @@
 import bookStack from "../assets/stack-of-books.png";
+import backgroundImg from "../assets/landing-page-background.png";
 import rightArrow from "../assets/icons/rightArrow.png";
 import searchIcon from "../assets/icons/searchICon.png";
 import { useNavigate } from "react-router-dom";
@@ -45,7 +46,7 @@ function LandingPage() {
             grade distributions.
           </h2>
         </div>
-        <img
+        {/*  <img
           src={bookStack}
           style={{
             width: "200px",
@@ -54,7 +55,7 @@ function LandingPage() {
             top: "90px",
             right: "10vw",
           }}
-        />
+        /> */}
       </div>
 
       <div id="landing-search">

@@ -25,6 +25,7 @@ type allowedLetterGrades =
   | "F";
 
 function ResultCard({ name, average_rating, courses }: ResultCardProps) {
+  const [reviewCount, setReviewCount] = useState(0);
   const [allCoursesSelected, setAllCoursesSelected] = useState(true);
 
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
@@ -52,6 +53,24 @@ function ResultCard({ name, average_rating, courses }: ResultCardProps) {
     F: 0,
     W: 0,
   };
+
+  // grabs reviews for each professor
+  useEffect(() => {
+    async function getReviewCount() {
+      try {
+        const response = await axios.get(
+          `https://planetterp.com/api/v1/professor?name=${name}&reviews=true`
+        );
+        const data = response.data;
+
+        // setReviewCount(data["reviews"].length);
+        setReviewCount(data["reviews"].length);
+      } catch (error) {
+        console.log(`Error fetching review count: ${error}`);
+      }
+    }
+    getReviewCount();
+  }, []);
 
   useEffect(() => {
     async function initialCourseSelection() {
@@ -195,7 +214,7 @@ function ResultCard({ name, average_rating, courses }: ResultCardProps) {
         <div className="profile-circle">
           <img src={User} style={{ width: "50%", marginBottom: "5px" }} />
         </div>
-        <p>32 Reviews</p>
+        <p>{reviewCount} Reviews</p>
       </div>
 
       <div className="first-horizontal-bar"></div>
